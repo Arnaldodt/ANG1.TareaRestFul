@@ -1,0 +1,20 @@
+*{
+    margin:0;
+    padding:0;
+}
+main{
+    margin:60px auto;
+    width:950;
+    border:3px solid #c9c9c9;
+    padding:30px;
+}
+h5{
+    padding-top: 30px;
+}
+ul{
+    list-style:none;
+    padding:30px; 
+}
+ul li{
+    padding:10px;
+}
