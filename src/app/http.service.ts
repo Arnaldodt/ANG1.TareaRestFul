@@ -34,12 +34,9 @@ export class HttpService {
   //       console.log(data)
   //   })
   // }
-  // getTraeUno = () =>{
-  //   let URL = `${environment.urlService}/636e95e8f4eea0fb4a076f1e`// esta ruta esta en el archivo environment
-  //   let tempObservable = this._http.get(URL);
-  //   tempObservable.subscribe(data => {
-  //       console.log('::Trae Informacion GET/De uno::')
-  //       console.log(data)
-  //   })
-  // }
+
+  getTraeUno = (_id:string) =>{
+    let URL = `${environment.urlService}/${_id}` // esta ruta esta en el archivo environment
+    return this._http.get<InterINFO>(URL);
+  }
 }

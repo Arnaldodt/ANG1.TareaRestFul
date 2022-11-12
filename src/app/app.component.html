@@ -9,18 +9,17 @@
 <body>
   <main>
     <h1>{{title}}</h1>
-    <h5>{{subtitle1}}</h5>
-    <ul *ngIf="show">
-      <li *ngFor="let info1 of infoBBDD1">
-
-          {{info1.title}} :: {{info1.description}} :: {{info1.completed}}
-
-      </li>
-    </ul>
-    <h5>{{subtitle2}}</h5>
-    <ul *ngIf="show">
+    <h5>{{subtitle1}} <button *ngIf="!show1"  (click)="onclickMostrar()">Mostrar</button></h5>
+      
+      <ul *ngIf="show1">
+        <li *ngFor="let info1 of infoBBDD1; let indice=index">
+          <button (click)="onclickMostrarDetalle(info1._id)">Detalle</button> :: {{indice}} :: {{info1.title}} 
+        </li>
+      </ul>
+    <h5 *ngIf="show2">{{subtitle2}}</h5>
+    <ul *ngIf="show2">
       <li >
-          {{infoBBDD2.title}} :: {{infoBBDD2.description}} :: {{infoBBDD2.completed}}
+          {{infoBBDD2.title}} :: {{infoBBDD2.description}} :: {{infoBBDD2.completed}} 
       </li>
     </ul>
   </main>

@@ -15,21 +15,26 @@ export class AppComponent implements OnInit {
 
   infoBBDD1!: InterINFO[];
   infoBBDD2!: InterINFO;
-  show= false;
-
+  show1= false;
+  show2= false;
   constructor(private _httpService: HttpService) {}
 
-  ngOnInit() {
-    this.getTasksFromService();
-  }
+  ngOnInit() { }
 
-  getTasksFromService() {
+  onclickMostrar(){
     let obs = this._httpService.getTrae();
     obs.subscribe((data) => {
       console.log('::Trae Informacion GET/::');
       this.infoBBDD1 = data;
-      this.infoBBDD2 = data[2];
-      this.show= true
+      this.show1= true
+    });
+  }
+  onclickMostrarDetalle(_id:string){
+    let obs = this._httpService.getTraeUno(_id);
+    obs.subscribe((data) => {
+      console.log('::Trae Informacion GET/::' + _id);
+      this.infoBBDD2 = data;
+      this.show2= true
     });
   }
 }
