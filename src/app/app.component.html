@@ -13,15 +13,17 @@
       
       <ul *ngIf="show1">
         <li *ngFor="let info1 of infoBBDD1; let indice=index">
-          <button (click)="onclickMostrarDetalle(info1._id)">Detalle</button> :: {{indice}} :: {{info1.title}} 
+          <button (click)="taskToShow(info1)">Detalle</button>:: {{indice}} :: {{info1.title}}  
+          <!-- <button (click)="onclickMostrarDetalle(info1._id)">Detalle</button>--> 
         </li>
       </ul>
-    <h5 *ngIf="show2">{{subtitle2}}</h5>
+    <!-- <h5 *ngIf="show2">{{subtitle2}}</h5>
     <ul *ngIf="show2">
       <li >
           {{infoBBDD2.title}} :: {{infoBBDD2.description}} :: {{infoBBDD2.completed}} 
       </li>
-    </ul>
+    </ul> -->
+    <app-task *ngIf="selectedTask" [taskToShow]="selectedTask"></app-task> 
   </main>
 </body>
 </html>

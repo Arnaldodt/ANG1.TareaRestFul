@@ -11,12 +11,12 @@ import { InterINFO } from './interInfo';
 export class AppComponent implements OnInit {
   title = 'INFO de la Base Mongo';
   subtitle1 = 'Muestra toda INFO';
-  subtitle2 = 'Muestra INFO del 3er Registro';
+
 
   infoBBDD1!: InterINFO[];
-  infoBBDD2!: InterINFO;
   show1= false;
-  show2= false;
+  selectedTask!:InterINFO;
+
   constructor(private _httpService: HttpService) {}
 
   ngOnInit() { }
@@ -29,12 +29,13 @@ export class AppComponent implements OnInit {
       this.show1= true
     });
   }
-  onclickMostrarDetalle(_id:string){
-    let obs = this._httpService.getTraeUno(_id);
-    obs.subscribe((data) => {
-      console.log('::Trae Informacion GET/::' + _id);
-      this.infoBBDD2 = data;
-      this.show2= true
-    });
+  taskToShow(task:InterINFO){
+    this.selectedTask = task
+    // let obs = this._httpService.getTraeUno(_id);
+    // obs.subscribe((data) => {
+    //   console.log('::Trae Informacion GET/::' + _id);
+    //   this.infoBBDD2 = data;
+    //   this.show2= true
+    // });
   }
 }
